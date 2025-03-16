@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RaisedButton extends StatelessWidget {
-  void showMessage(String message) {
-    print(message);
+  void showMessage(BuildContext context, String message) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -11,7 +13,7 @@ class RaisedButton extends StatelessWidget {
       appBar: AppBar(title: Text('Raised Button Demo')),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => showMessage('Raised Button Clicked!'),
+          onPressed: () => showMessage(context, 'Raised Button Clicked!'),
           child: Text('Raised Button'),
         ),
       ),
