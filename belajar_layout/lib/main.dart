@@ -44,10 +44,24 @@ class _ManageWidgetState extends State<ManageWidget> {
               opacity: _isVisible ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 500),
               child: Container(
-                width: 150,
-                height: 150,
-                color: Colors.green,
-                child: const Center(child: Text('Visible Widget')),
+                width: 250,
+                height: 100,
+                padding: const EdgeInsets.all(16),
+                margin: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 30,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  border: Border.all(color: Colors.black, width: 2),
+                ),
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Box Model',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 20),
