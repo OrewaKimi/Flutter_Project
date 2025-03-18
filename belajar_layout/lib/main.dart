@@ -11,20 +11,51 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Layout Screen')),
-        body: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: 200,
-            color: Colors.blue,
-            child: const Center(
-              child: Text(
-                'Responsive Box',
-                style: TextStyle(color: Colors.white, fontSize: 24),
+      home: const ManageWidget(),
+    );
+  }
+}
+
+class ManageWidget extends StatefulWidget {
+  const ManageWidget({super.key});
+
+  @override
+  _ManageWidgetState createState() => _ManageWidgetState();
+}
+
+class _ManageWidgetState extends State<ManageWidget> {
+  bool _isVisible = true;
+
+  void _toggleVisibility() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Manage Widget")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedOpacity(
+              opacity: _isVisible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 500),
+              child: Container(
+                width: 150,
+                height: 150,
+                color: Colors.green,
+                child: const Center(child: Text('Visible Widget')),
               ),
             ),
-          ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _toggleVisibility,
+              child: const Text('Toggle Visibility'),
+            ),
+          ],
         ),
       ),
     );
