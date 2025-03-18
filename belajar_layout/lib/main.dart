@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('Layout Screen')),
         body: Center(
@@ -20,11 +21,12 @@ class MyApp extends StatelessWidget {
             child: const Center(
               child: Text(
                 'Responsive Box',
-                style: TextStyle(color: Colors.white, fontSize: 24),),
+                style: TextStyle(color: Colors.white, fontSize: 24),
               ),
             ),
           ),
         ),
-      );
-    }
+      ),
+    );
   }
+}
