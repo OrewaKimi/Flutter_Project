@@ -47,9 +47,11 @@ class _ManageWidgetState extends State<ManageWidget> {
                 width: 250,
                 height: 100,
                 padding: const EdgeInsets.all(16),
-                margin: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 30,
+                margin: const EdgeInsets.only(
+                  top: 50, // Ubah nilai ini menjadi lebih besar
+                  bottom: 20,
+                  left: 30,
+                  right: 30,
                 ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
