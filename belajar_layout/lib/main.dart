@@ -11,60 +11,51 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+      home: const ManageWidget(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class ManageWidget extends StatefulWidget {
+  const ManageWidget({super.key});
+
+  @override
+  _ManageWidgetState createState() => _ManageWidgetState();
+}
+
+class _ManageWidgetState extends State<ManageWidget> {
+  bool _isVisible = true;
+
+  void _toggleVisibility() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    double fontSize = MediaQuery.of(context).size.width * 0.05;
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Layout Screen')),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+      appBar: AppBar(title: const Text("Manage Widget")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Drawer Header'),
+            AnimatedOpacity(
+              opacity: _isVisible ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 500),
+              child: Container(
+                width: 150,
+                height: 150,
+                color: Colors.green,
+                child: const Center(child: Text('Visible Widget')),
+              ),
             ),
-            ListTile(
-              title: const Text('Shoes'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Clothes'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Pants'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _toggleVisibility,
+              child: const Text('Toggle Visibility'),
             ),
           ],
-        ),
-      ),
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: 200,
-          color: Colors.blue,
-          child: Center(
-            child: Text(
-              'Responsive Box',
-              style: TextStyle(color: Colors.white, fontSize: fontSize),
-            ),
-          ),
         ),
       ),
     );
