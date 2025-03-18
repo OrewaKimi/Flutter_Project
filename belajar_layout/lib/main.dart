@@ -21,6 +21,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double fontSize = MediaQuery.of(context).size.width * 0.05;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Layout Screen')),
       drawer: Drawer(
@@ -52,7 +54,19 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(child: Text('Selamat datang di layout: scaffold!')),
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: 200,
+          color: Colors.blue,
+          child: Center(
+            child: Text(
+              'Responsive Box',
+              style: TextStyle(color: Colors.white, fontSize: fontSize),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
