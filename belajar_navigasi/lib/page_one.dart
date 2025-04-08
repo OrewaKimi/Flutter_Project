@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:belajar_navigasi/page_two.dart';
+import 'page_two.dart';
 
 class PageOne extends StatelessWidget {
+  const PageOne({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page One'),
+        title: const Text('Page One'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => PageTwo()),
+              MaterialPageRoute(builder: (context) => const PageTwo()),
             );
           },
-          child: Text('Go to Page Two'),
+          child: const Text('Go to Page Two'),
         ),
       ),
     );
