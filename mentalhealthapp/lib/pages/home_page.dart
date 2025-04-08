@@ -199,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                               numberOfExercises: 4,
                               color: Colors.red,
                             ),
-                             ExerciseTitle(
+                            ExerciseTitle(
                               icon: Icons.lightbulb,
                               exerciseName: 'Critical Thinking',
                               numberOfExercises: 5,
