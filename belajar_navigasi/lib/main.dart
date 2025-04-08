@@ -1,4 +1,5 @@
 import 'package:belajar_navigasi/home_with_drawer.dart';
+import 'package:belajar_navigasi/tab_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:belajar_navigasi/page_one.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeWithDrawer(),
+      home: TabNavigation(),
     );
   }
 }
